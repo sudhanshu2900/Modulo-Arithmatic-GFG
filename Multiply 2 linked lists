@@ -1,0 +1,49 @@
+PROBLEM: Given elements as nodes of the two linked lists. The task is to multiply these two linked lists, say L1 and L2. 
+
+Input:
+T = 2
+    N = 2
+    L1 -> 3 2
+    M = 1
+    L2 -> 2
+    
+    N = 3
+    L1 -> 1 0 0
+    M = 2
+    L2 -> 1 0 
+
+Output:
+64
+1000
+
+Explanation:
+Testcase 1: 32*2 = 64.
+Testcase 2: 100*10 = 1000.
+
+
+SOLUTION:
+
+long long  multiplyTwoLists (Node* l1, Node* l2)
+{
+    Node *tt1 = l1;
+    Node *tt2 = l2;
+    long long a=0, b=0;
+    
+    while(tt1!=NULL){
+        a = ((a*10)+(tt1->data))%1000000007;
+        tt1=tt1->next;
+        
+    }
+    
+    while(tt2!=NULL){
+        b = ((b*10)+(tt2->data))%1000000007;
+        tt2=tt2->next;
+        
+    }
+    
+    return ((a%1000000007)*(b%1000000007))%1000000007;
+}
+
+
+
+
